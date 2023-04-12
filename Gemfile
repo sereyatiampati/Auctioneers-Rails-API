@@ -61,3 +61,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'active_model_serializers', '~> 0.10.2'
+
+gem 'rack-cors'
+
+gem "bcrypt", "~> 3.1"
