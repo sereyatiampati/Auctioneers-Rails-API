@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+    skip_before_action :verify_authenticity_token, only: [:create]
+
 
     def index
         render json: Product.all
@@ -35,7 +37,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image)
+        params.permit(:name, :description)
     end
     
 
