@@ -34,18 +34,18 @@ class UsersController < ApplicationController
     # end
 
     # auto-login /GET /me
-  def show
-    render json: { user: UserSerializer.new(current_user) }, status: :accepted
-  end
+    def profile
+      render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    end
 
- # POST /sign up
+    # POST /signup
     def create
-        @user = User.create(user_params)
-        if @user.valid?
-            render json: { user: UserSerializer.new(@user) }, status: :created
-        else
-            render json: { error: 'failed to create user' }, status: :unprocessable_entity
-        end
+      @user = User.create(user_params)
+      if @user.valid?
+          render json: { user: UserSerializer.new(@user) }, status: :created
+      else
+          render json: { error: 'failed to create user' }, status: :unprocessable_entity
+      end
     end
     
     private
