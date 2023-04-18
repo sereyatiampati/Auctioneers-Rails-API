@@ -1,11 +1,12 @@
-##Users
-User.create(username: "john_doe", password: "password123", email: "john@example.com")
-User.create(username: "jane_doe", password: "password456", email: "jane@example.com")
-User.create(username: "jim_smith", password: "password789", email: "jim@example.com")
-
 ##Roles
-Role.create(name: "buyer")
-Role.create(name: "seller")
+r1 = Role.create(name: "buyer")
+r2 = Role.create(name: "seller")
+
+##Users
+r1.users.create(username: "john_doe", password: "password123", email: "john@example.com", role_id: 1)
+r1.users.create(username: "jane_doe", password: "password456", email: "jane@example.com", role_id: 1)
+r2.users.create(username: "jim_smith", password: "password789", email: "jim@example.com", role_id: 2)
+
 
 ##Bids
 Bid.create(bid_amount: 10.0, bid_time: DateTime.now)
