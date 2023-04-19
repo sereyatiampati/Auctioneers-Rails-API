@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :authorized
+    wrap_parameters format:[]
 
     def encode_token(payload)
         # don't forget to hide your secret in an environment variable
