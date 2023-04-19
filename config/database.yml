@@ -22,7 +22,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
+  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
   database: auctioneers_rails_api_production
   username: auctioneers_rails_api
