@@ -22,4 +22,8 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  url: <%= ENV['DATABASE_URL'] %>
+  database: auctioneers_rails_api_production
+  username: auctioneers_rails_api
+  password: <%= ENV["AUCTINEERS_RAILS_API_DATABASE_PASSWORD"] %>
+  # database: db/production.sqlite3
