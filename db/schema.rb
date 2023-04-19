@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_19_064346) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_084935) do
   create_table "bids", force: :cascade do |t|
     t.float "bid_amount"
     t.datetime "bid_time"
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_19_064346) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
+    t.integer "successful_bid_id"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
