@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_18_180353) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_064346) do
   create_table "bids", force: :cascade do |t|
     t.float "bid_amount"
     t.datetime "bid_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_bids_on_product_id"
+    t.index ["user_id"], name: "index_bids_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -34,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_180353) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -52,5 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_18_180353) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "bids", "products"
+  add_foreign_key "bids", "users"
+  add_foreign_key "products", "categories"
   add_foreign_key "users", "roles"
 end
