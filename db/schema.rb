@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_14_111138) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_18_180353) do
   create_table "bids", force: :cascade do |t|
     t.float "bid_amount"
     t.datetime "bid_time"
@@ -44,10 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_14_111138) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role_id", null: false
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "users", "roles"
 end

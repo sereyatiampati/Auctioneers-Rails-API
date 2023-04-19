@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_secure_password
+
     has_many :bids
-    has_one :role
+    belongs_to :role
 end
