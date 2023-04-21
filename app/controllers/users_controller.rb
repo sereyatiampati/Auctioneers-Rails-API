@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only:[:create]
-    skip_before_action :verify_authenticity_token, only:[:create]
+    # skip_before_action :verify_authenticity_token
    
     # def index
     #     render json: User.all
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :username, :password, :password_confirmation, :role_id)
+      params.permit(:email, :username, :password, :password_confirmation, :role_id)
     end
 end
 
