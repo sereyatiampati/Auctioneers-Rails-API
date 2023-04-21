@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   ##BIDS
   get '/bids', to: 'bids#index'
-  get '/bids/:id', to: 'bids#show'
   post '/bids', to: 'bids#create'
-  delete '/bids', to: 'bids#destroy'
+  delete '/bids/:id', to: 'bids#destroy'
+  get '/productbids/:id', to: 'bids#bidprods' #getting bids for a specific product
+  get '/bidhistory', to: 'bids#bidhistory'
 
   ##CATEGORIES
   get '/categories', to: 'categories#index'
