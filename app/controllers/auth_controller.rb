@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
     skip_before_action :authorized, only: [:create]
+    # skip_before_action :verify_authenticity_token
 
     # POST /login
     def create
@@ -17,6 +18,6 @@ class AuthController < ApplicationController
     private
 
     def user_login_params
-        params.require(:user).permit(:username, :password)
+        params.permit(:username, :password)
     end
 end
