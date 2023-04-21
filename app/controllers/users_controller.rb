@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only:[:create]
-    # skip_before_action :verify_authenticity_token
+    skip_before_action :verify_authenticity_token
    
     # def index
     #     render json: User.all
@@ -35,18 +35,29 @@ class UsersController < ApplicationController
     # end
 
     # auto-login /GET /me
-    def profile
-      render json: { user: UserSerializer.new(current_user) }, status: :accepted
-    end
+    # def profile
+    #   render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    # end
 
     # POST /signup
+    # def create
+    #   @user = User.create(user_params)
+    #   if @user.valid?
+    #       render json: { user: UserSerializer.new(@user) }, status: :created
+    #   else
+    #       render json: { error: 'failed to create user' }, status: :unprocessable_entity
+    #   end
+    # end
+
     def create
-      @user = User.create(user_params)
-      if @user.valid?
-          render json: { user: UserSerializer.new(@user) }, status: :created
+      user = User.create(user_params)
+      if user.valid?
+        session[:user_id] = user.id
+        render json: user, status: :created
       else
-          render json: { error: 'failed to create user' }, status: :unprocessable_entity
-      end
+        render json: { error: 'failed to create user' }, status: :unprocessable_entity
+      end     
+      
     end
     
     private

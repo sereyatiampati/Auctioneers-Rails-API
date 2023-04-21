@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/products/:id', to: 'products#show'
   post '/products', to: 'products#create'
   delete 'products/:id', to: 'products#destroy'
+  get '/landing_products', to: 'products#landing'
 
   ##BIDS
   get '/bids', to: 'bids#index'
