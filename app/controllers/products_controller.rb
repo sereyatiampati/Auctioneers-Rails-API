@@ -1,10 +1,17 @@
 class ProductsController < ApplicationController
     skip_before_action :authorized, only: [:index,:show]
 
+    # GET /products
     def index
         render json: Product.all
     end
 
+    # GET /landing_products
+    def landing
+        render json: Product.order(created_at: :desc)
+    end
+
+    # POST /products
     def create
         product = Product.create(product_params)
         if product
@@ -14,6 +21,7 @@ class ProductsController < ApplicationController
         end
     end
 
+    # GET /products/:id
     def show
         product = Product.find_by(id: params[:id])
         if product
@@ -23,6 +31,7 @@ class ProductsController < ApplicationController
         end
     end
 
+    # DELETE /products/:id
     def destroy
         product = Product.find_by(id: params[:id])
         if product
