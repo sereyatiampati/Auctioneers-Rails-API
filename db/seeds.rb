@@ -73,7 +73,7 @@ Product.create([
     starting_price: 450,
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
-    image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1681476283/cld-sample-5.jpg",
+    image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682167105/Auctioneers/Products%20images/irene-kredenets-dwKiHoqqxk8-unsplash_2_fjmhbo.jpg.jpg",
     category_id: 3
   },
   {
