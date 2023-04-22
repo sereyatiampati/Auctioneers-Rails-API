@@ -6,9 +6,9 @@ class ProductsController < ApplicationController
         render json: Product.all
     end
 
-    # GET /landing_products
-    def landing
-        render json: Product.order(created_at: :desc)
+    # GET /latest_products for the landing page
+    def latest_products
+        render json: Product.order(created_at: :asc).limit(6)
     end
 
     # POST /products
