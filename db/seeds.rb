@@ -46,7 +46,7 @@ Product.create([
     starting_price: 1000,
     start_date: DateTime.now,
     end_date: DateTime.now + 7.days,
-    image: "iphone.jpg",
+    image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682147646/Auctioneers/Products%20images/aram-sabah-smVUoz8CSCw-unsplash_ok1kas.jpg",
     category_id: 1
   },
   {
@@ -55,7 +55,7 @@ Product.create([
     starting_price: 200,
     start_date: DateTime.now,
     end_date: DateTime.now + 5.days,
-    image: "leather_jacket.jpg",
+    image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682147646/Auctioneers/Products%20images/aram-sabah-smVUoz8CSCw-unsplash_ok1kas.jpg",
     category_id: 2
   },
   {
@@ -64,7 +64,7 @@ Product.create([
     starting_price: 300,
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
-    image: "coffee_table.jpg",
+    image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682147646/Auctioneers/Products%20images/aram-sabah-smVUoz8CSCw-unsplash_ok1kas.jpg",
     category_id: 3
   }
 ])
