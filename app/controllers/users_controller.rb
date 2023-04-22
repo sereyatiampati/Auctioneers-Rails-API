@@ -38,6 +38,10 @@ class UsersController < ApplicationController
     # def profile
     #   render json: { user: UserSerializer.new(current_user) }, status: :accepted
     # end
+    def profile
+      user = User.find_by(id: session[:user_id])
+      render json: user, status: :ok
+    end
 
     # POST /signup
     # def create
