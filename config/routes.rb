@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   # get '/users/:id', to: 'users#show'
   post '/signup', to: 'users#create'
-  delete '/users', to: 'users#destroy'
+  delete '/logout', to: 'auth#destroy'
   get '/me', to: 'users#profile'
   post "/login", to: "auth#create"
 
