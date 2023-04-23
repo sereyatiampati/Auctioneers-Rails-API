@@ -1,13 +1,17 @@
 puts "🚦 Lights Out"
 
-##Roles
-r1 = Role.create(name: "buyer")
-r2 = Role.create(name: "seller")
 
 ##Users
-u1 = User.create(username: "john_doe", password: "password123", email: "john@example.com", role_id: r1.id)
-u2 = User.create(username: "jane_doe", password: "password456", email: "jane@example.com", role_id: r1.id)
-u3 = User.create(username: "jim_smith", password: "password789", email: "jim@example.com", role_id: r2.id)
+u1 = User.create(username: "john_doe", password: "password123", email: "john@example.com", user_type: "Buyer")
+u2 = User.create(username: "jane_doe", password: "password456", email: "jane@example.com", user_type: "Buyer")
+u3 = User.create(username: "jim_smith", password: "password789", email: "jim@example.com", user_type: "Seller")
+
+# Buyers
+Buyer.create(username: "john_doe", email: "john@example.com", user_id: 1)
+Buyer.create(username: "jane_doe", email: "jane@example.com", user_id: 2)
+
+# Sellers
+Seller.create(username: "jim_smith", email: "jim@example.com", user_id: 3)
 
 ##Products
 # p1 = Product.create({
@@ -133,9 +137,9 @@ Product.create([
 ])
 
 ##Bids
-Bid.create(bid_amount: 10.0, bid_time: DateTime.now, user_id: 1, product_id: 2)
-Bid.create(bid_amount: 15.0, bid_time: DateTime.now, user_id: 3, product_id: 3)
-Bid.create(bid_amount: 20.0, bid_time: DateTime.now, user_id: 2, product_id: 1)
+Bid.create(bid_amount: 10.0, bid_time: DateTime.now, buyer_id: 1, product_id: 2)
+Bid.create(bid_amount: 15.0, bid_time: DateTime.now, buyer_id: 3, product_id: 3)
+Bid.create(bid_amount: 20.0, bid_time: DateTime.now, buyer_id: 2, product_id: 1)
 
 
 
