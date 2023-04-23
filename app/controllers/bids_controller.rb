@@ -27,6 +27,16 @@ class BidsController < ApplicationController
         end
     end
 
+    # GET /bids/:id
+    def onebid
+        bid = Bid.find_by(id: params[:id])
+        if bid
+            render json: bid, status: :ok
+        else
+            render json: {error: "Bid not found"}, status: :not_found
+        end
+    end
+
     # GET /productbids/:id
     def bidprods
         product = Product.find_by(id: params[:id])

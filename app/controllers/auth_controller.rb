@@ -1,6 +1,8 @@
 class AuthController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized, only: [:create, :destroy]
+    
     skip_before_action :verify_authenticity_token
+    rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
 
     # POST /login
 
@@ -19,31 +21,60 @@ class AuthController < ApplicationController
     # seller
     # def create 
     #     buyer = User.find_by(username: params[:username], role_id: 1)
-    #     seller = User.find_by(username: params[:username], role_id: 2)
+    #     vendor = User.find_by(username: params[:username], role_id: 2)
     #     if buyer&.authenticate(params[:password])
     #         session[:buyer_id] = buyer.id
     #         render json: user, status: :created            
     #     elsif seller&.authenticate(params[:password])
-    #         session[:seller_id] = seller.id
+    #         session[:vendor_id] = vendor.id
     #         render json: user, status: :created         
     #     else
     #         render json: { errors: ["Invalid username or password"] }, status: :unauthorized
     #     end
     # end
 
+    # def create
+    #     user = User.find_by(username: params[:username])
+    #     if user&.authenticate(params[:password])
+    #         session[:user_id] = user.id
+    #         render json: user, status: :created
+    #     else
+    #         render json: { errors: ["Invalid username or password"] }, status: :unauthorized
+    #     end
+    # end
+
+    # POST /login
     def create
-        user = User.find_by(username: params[:username])
+        user = User.find_by(username:params[:username])
         if user&.authenticate(params[:password])
-            session[:user_id] = user.id
-            render json: user, status: :created
+            if (params[:user_type]=="Buyer")
+                buyer = Buyer.find_by(user_id:user.id)
+                if buyer
+                    session[:buyer_id] = buyer.id
+                    render json: buyer
+                else
+                    render json: {errors:["Invalid Buyer username or password"]}, status: :unauthorized
+                end
+            elsif((params[:user_type]=="Seller"))
+                seller = Seller.find_by(user_id:user.id)
+                if seller
+                    session[:seller_id] = seller.id
+                    render json: seller
+                else
+                    render json: {errors:["Invalid Seller username or password"]}, status: :unauthorized
+                end
+            else
+                render json: {errors:["You have not selected"]}, status: :not_found
+            end
         else
-            render json: { errors: ["Invalid username or password"] }, status: :unauthorized
+        render json: {errors:["Wrong email address or password"]}, status: :unprocessable_entity #422
         end
     end
 
     # DELETE /logout
     def destroy
-        session.delete :user_id
+        session.delete :buyer_id
+        session.delete :seller_id
         head :no_content
     end
 
@@ -51,5 +82,10 @@ class AuthController < ApplicationController
 
     def user_login_params
         params.permit(:username, :password)
+    end
+
+    # error handling
+    def user_not_found
+        render json: {errors:["User does not exist"]}, status: :not_found  #404
     end
 end
