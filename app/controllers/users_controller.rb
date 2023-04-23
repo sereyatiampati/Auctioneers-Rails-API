@@ -96,7 +96,7 @@ class UsersController < ApplicationController
       if user
           if (params[:user_type]=="Buyer")
           buyer= Buyer.create!(user_id:user.id, username:params[:username],email:params[:email])
-          session[:buyer_id] = buyer.id
+          session[:buyer_id] = buyer.id        
           render json: buyer
           else
           seller= Seller.create!(user_id:user.id, username:params[:username],email:params[:email])
