@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :authorized
     wrap_parameters format:[]
     include ActionController::Cookies
+    
 
     # def encode_token(payload)
     #     # don't forget to hide your secret in an environment variable
@@ -44,6 +45,10 @@ class ApplicationController < ActionController::Base
     # end
 
     def authorized
-        return render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
+        return render json: { errors: ["Not a Buyer"] }, status: :unauthorized unless session.include? :buyer_id
+    end
+
+    def seller_auth
+        return render json: { errors: ["Not a Seller"] }, status: :unauthorized unless session.include? :seller_id
     end
 end

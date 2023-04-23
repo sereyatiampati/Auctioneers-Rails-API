@@ -31,6 +31,17 @@ class ProductsController < ApplicationController
         end
     end
 
+    # GET /highestbid/:id
+    def maxamount
+        product = Product.find_by(id: params[:id])
+        bid = product.bids.order(bid_amount: :desc).first
+        if bid
+            render json: bid, status: :ok
+        else
+            render json: {error: "Highest Bid not found"}, status: :not_found
+        end
+    end
+
     # DELETE /products/:id
     def destroy
         product = Product.find_by(id: params[:id])
