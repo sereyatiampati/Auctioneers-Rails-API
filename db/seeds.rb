@@ -1,13 +1,23 @@
 puts "🚦 Lights Out"
 
-##Roles
-r1 = Role.create(name: "buyer")
-r2 = Role.create(name: "seller")
 
 ##Users
-u1 = User.create(username: "john_doe", password: "password123", email: "john@example.com", role_id: r1.id)
-u2 = User.create(username: "jane_doe", password: "password456", email: "jane@example.com", role_id: r1.id)
-u3 = User.create(username: "jim_smith", password: "password789", email: "jim@example.com", role_id: r2.id)
+u1 = User.create(username: "john_doe", password: "password123", email: "john@example.com", user_type: "Buyer")
+u2 = User.create(username: "jane_doe", password: "password456", email: "jane@example.com", user_type: "Buyer")
+u3 = User.create(username: "jim_smith", password: "password789", email: "jim@example.com", user_type: "Seller")
+u4 = User.create(username: "k-2", password: "89", email: "k2@example.com", user_type: "Seller")
+u5 = User.create(username: "don", password: "dawn", email: "dwn2@example.com", user_type: "Seller")
+u6 = User.create(username: "lol", password: "9", email: "lol@example.com", user_type: "Seller")
+
+# Buyers
+Buyer.create(username: "john_doe", email: "john@example.com", user_id: 1)
+Buyer.create(username: "jane_doe", email: "jane@example.com", user_id: 2)
+
+# Sellers
+Seller.create(username: "jim_smith", email: "jim@example.com", user_id: 3)
+Seller.create(username: "k-2", email: "k2@example.com", user_id: 4)
+Seller.create(username: "don", email: "dwn2@example.com", user_id: 5)
+Seller.create(username: "lol", email: "lol@example.com", user_id: 6)
 
 ##Products
 # p1 = Product.create({
@@ -47,7 +57,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 7.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682172202/Auctioneers/Products%20images/phuc-khang-mobile-FJ4OeNnDZRM-unsplash_qygpb7.jpg",
-    category_id: 1
+    category_id: 1,
+    seller_id: 1
   },
   {
     name: "MacBook Pro 16 M2 Chip",
@@ -56,7 +67,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682182246/Auctioneers/Products%20images/Artboard-1-copy_300x-100-65-1-1.jpg_j4l1sz.webp",
-    category_id: 1
+    category_id: 1,
+    seller_id: 1
   },
   {
     name: "Rustic Coffee Table",
@@ -65,7 +77,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
     image: "https://m.media-amazon.com/images/I/81W3UaumB2L._AC_UL400_.jpg",
-    category_id: 3
+    category_id: 3,
+    seller_id: 1
   },
   {
     name: "Addidas White Sneakers",
@@ -74,7 +87,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682167105/Auctioneers/Products%20images/irene-kredenets-dwKiHoqqxk8-unsplash_2_fjmhbo.jpg",
-    category_id: 3
+    category_id: 3,
+    seller_id: 2
   },
   {
     name: "Apple Watch SE",
@@ -83,7 +97,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682168389/Auctioneers/Products%20images/swim__fgeofjpbekii_large_n4kqun.jpg",
-    category_id: 1
+    category_id: 1,
+    seller_id: 2
   },
   {
     name: "Black Leather Jacket",
@@ -92,7 +107,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 5.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682149837/Auctioneers/Products%20images/lea-ochel-nsRBbE6-YLs-unsplash_uwp60e.jpg",
-    category_id: 2
+    category_id: 2,
+    seller_id: 3
   },
   {
     name: "Mac Pro Display XDR",
@@ -101,7 +117,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682152513/Auctioneers/Products%20images/hero__fkyiyagbj7yy_large_ufrele.jpg",
-    category_id: 1
+    category_id: 1,
+    seller_id: 3
   },
   {
     name: "IKEA Beige Couch",
@@ -110,7 +127,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
     image: "https://plus.unsplash.com/premium_photo-1673548917207-8747dffd1391?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG1hY2Jvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    category_id: 3
+    category_id: 3,
+    seller_id: 3
   },
   {
     name: "Addidas White Sneakers",
@@ -119,7 +137,8 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682169012/Auctioneers/Products%20images/cld-sample-5_bhtq4u.jpg",
-    category_id: 3
+    category_id: 3,
+    seller_id: 4
   },
   {
     name: "Toshiba Notebook with 500GB HDD & 8GB RAM",
@@ -128,14 +147,15 @@ Product.create([
     start_date: DateTime.now,
     end_date: DateTime.now + 3.days,
     image: "https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png",
-    category_id: 1
+    category_id: 1,
+    seller_id: 4
   },
 ])
 
 ##Bids
-Bid.create(bid_amount: 10.0, bid_time: DateTime.now, user_id: 1, product_id: 2)
-Bid.create(bid_amount: 15.0, bid_time: DateTime.now, user_id: 3, product_id: 3)
-Bid.create(bid_amount: 20.0, bid_time: DateTime.now, user_id: 2, product_id: 1)
+Bid.create(bid_amount: 10.0, bid_time: DateTime.now, buyer_id: 1, product_id: 2)
+Bid.create(bid_amount: 15.0, bid_time: DateTime.now, buyer_id: 1, product_id: 3)
+Bid.create(bid_amount: 20.0, bid_time: DateTime.now, buyer_id: 2, product_id: 1)
 
 
 

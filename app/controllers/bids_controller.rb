@@ -7,8 +7,8 @@ class BidsController < ApplicationController
 
     # POST /bids
     def create
-        user = current_user
-        bid = user.bids.create(bid_params)
+        buyer = Buyer.find_by(id: session[:buyer_id])
+        bid = buyer.bids.create(bid_params)
         if bid
             render json: bid, status: :created
         else
@@ -18,7 +18,7 @@ class BidsController < ApplicationController
 
     # GET /bidhistory
     def show
-        user = current_user
+        user = Buyer.find_by(id: session[:buyer_id])
         bid = user.bids.all
         if bid
             render json: bid, status: :ok
@@ -61,7 +61,7 @@ class BidsController < ApplicationController
 
     private
     def bid_params
-        params.permit(:bid_amount, :bid_time, :user_id, :product_id)
+        params.permit(:bid_amount, :bid_time, :buyer_id, :product_id)
     end
     
 
