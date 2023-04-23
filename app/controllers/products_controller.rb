@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
-    skip_before_action :authorized, only: [:index,:show]
+    skip_before_action :authorized, only: [:index,:show, :latest_products]
 
     # GET /products
     def index
         render json: Product.all
     end
 
-    # GET /landing_products
-    def landing
-        render json: Product.order(created_at: :desc)
+    # GET /latest_products for the landing page
+    def latest_products
+        render json: Product.order(created_at: :asc).limit(6)
     end
 
     # POST /products
