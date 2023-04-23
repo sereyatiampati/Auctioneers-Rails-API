@@ -51,7 +51,6 @@ class AuthController < ApplicationController
                 buyer = Buyer.find_by(user_id:user.id)
                 if buyer
                     session[:buyer_id] = buyer.id
-                    debugger
                     render json: buyer
                     
                 else
