@@ -61,7 +61,7 @@ Product.create([
     seller_id: 1
   },
   {
-    name: "MacBook Pro 16 M2 Chip",
+    name: "Apple MacBook Pro 16 M2 Chip",
     description: "Sleek design, powerful hardware specifications, and advanced features such as Retina displays, Touch Bar, and Touch ID",
     starting_price: 1300,
     start_date: DateTime.now,
@@ -71,7 +71,7 @@ Product.create([
     seller_id: 1
   },
   {
-    name: "Rustic Coffee Table",
+    name: "IKEA Rustic Coffee-Table",
     description: "A handmade coffee table made from reclaimed wood.",
     starting_price: 350,
     start_date: DateTime.now,
@@ -101,8 +101,8 @@ Product.create([
     seller_id: 2
   },
   {
-    name: "Black Leather Jacket",
-    description: "A stylish leather jacket for men or women.",
+    name: "Leather Jacket: Black",
+    description: "A stylish black leather jacket for men or women.",
     starting_price: 200,
     start_date: DateTime.now,
     end_date: DateTime.now + 5.days,
@@ -111,7 +111,7 @@ Product.create([
     seller_id: 3
   },
   {
-    name: "Mac Pro Display XDR",
+    name: "Apple Mac Pro Display XDR",
     description: "A brilliant 32-inch 6K Retina display, apple most advanced for pros.",
     starting_price: 1500,
     start_date: DateTime.now,
