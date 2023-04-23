@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-    skip_before_action :authorized, only: [:index,:show, :latest_products]
+    skip_before_action :authorized, only: [:index,:show, :latest_products, :create]
 
     # GET /products
     def index
