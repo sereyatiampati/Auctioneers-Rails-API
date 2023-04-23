@@ -47,7 +47,7 @@ class AuthController < ApplicationController
     def create
         user = User.find_by(username:params[:username])
         if user&.authenticate(params[:password])
-            if (params[:user_type]=="Buyer")
+            if (user.user_type=="Buyer")
                 buyer = Buyer.find_by(user_id:user.id)
                 if buyer
                     session[:buyer_id] = buyer.id
@@ -55,7 +55,7 @@ class AuthController < ApplicationController
                 else
                     render json: {errors:["Invalid Buyer username or password"]}, status: :unauthorized
                 end
-            elsif((params[:user_type]=="Seller"))
+            elsif((user.user_type=="Seller"))
                 seller = Seller.find_by(user_id:user.id)
                 if seller
                     session[:seller_id] = seller.id
