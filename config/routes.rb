@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   delete 'products/:id', to: 'products#destroy'
   get '/latest_products', to: 'products#latest_products'
   get '/highestbid/:id', to: 'products#maxamount'
+  get '/activebids', to: 'products#active'
 
   ##BIDS
   get '/bids', to: 'bids#index'

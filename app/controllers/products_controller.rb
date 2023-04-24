@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-    skip_before_action :authorized, only: [:index,:show, :latest_products, :create]
+    skip_before_action :authorized
     # before_action :seller_auth, 
 
     # GET /products
@@ -14,7 +14,8 @@ class ProductsController < ApplicationController
 
     # POST /products
     def create
-        product = Product.create(product_params)
+        seller = Seller.find_by(id: session[:seller_id])
+        product = seller.products.create(product_params)
         if product
             render json: product, status: :created
         else

@@ -45,8 +45,8 @@ class AuthController < ApplicationController
 
     # POST /login
     def create
-        user = User.find_by(username:params[:username])
-        if user&.authenticate(params[:password])
+        user = User.find_by(username:user_login_params[:username])
+        if user&.authenticate(user_login_params[:password])
             if (user.user_type =="Buyer")
                 buyer = Buyer.find_by(user_id:user.id)
                 if buyer

@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-
+    skip_before_action :authorized
     # GET /bids
     def index
         render json: Bid.all
@@ -7,7 +7,7 @@ class BidsController < ApplicationController
 
     # POST /bids
     def create
-        buyer = Buyer.find_by(id: session[:buyer_id])
+        buyer = Buyer.find_by(id: 1)
         bid = buyer.bids.create(bid_params)
         if bid
             render json: bid, status: :created
@@ -18,7 +18,7 @@ class BidsController < ApplicationController
 
     # GET /bidhistory
     def show
-        user = Buyer.find_by(id: session[:buyer_id])
+        user = Buyer.find_by(id: 1)
         bid = user.bids.all
         if bid
             render json: bid, status: :ok
