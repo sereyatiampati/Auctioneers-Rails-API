@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
-    # skip_before_action :authorized, only: [:index,:show, :latest_products, :create]
-    # before_action :seller_auth, 
     skip_before_action :authorized
+    # before_action :seller_auth, 
 
     # GET /products
     def index
@@ -45,13 +44,6 @@ class ProductsController < ApplicationController
         end
     end
 
-    # GET /activebids
-    def active
-        @active_bids = Product.where("end_date > ?", Date.today)
-        render json: @active_bids
-    end
-
-
     # DELETE /products/:id
     def destroy
         product = Product.find_by(id: params[:id])
@@ -66,7 +58,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image, :seller_id)
+        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image)
     end  
 
 end
