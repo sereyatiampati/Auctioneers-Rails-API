@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :authorized
     wrap_parameters format:[]
-    include ActionController::Cookies
     
 
     def encode_token(payload)

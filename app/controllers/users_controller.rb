@@ -111,21 +111,20 @@ class UsersController < ApplicationController
     #   end    
     # end
 
-    # POST /signup
-    def create
-      user = User.create!(user_params)
-      if user
-          if (params[:user_type]=="Buyer")
-          buyer= Buyer.create!(user_id:user.id, username:params[:username],email:params[:email])
-          session[:buyer_id] = buyer.id        
-          render json: buyer
-          elsif (params[:user_type]=="Seller")
-          seller= Seller.create!(user_id:user.id, username:params[:username],email:params[:email])
-          session[:seller_id] = seller.id
-          render json: seller
-          end
-      end
-    end
+    # def create
+    #   user = User.create!(user_params)
+    #   if user
+    #       if (params[:user_type]=="Buyer")
+    #       buyer= Buyer.create!(user_id:user.id, username:params[:username],email:params[:email])
+    #       session[:buyer_id] = buyer.id        
+    #       render json: buyer
+    #       elsif (params[:user_type]=="Seller")
+    #       seller= Seller.create!(user_id:user.id, username:params[:username],email:params[:email])
+    #       session[:seller_id] = seller.id
+    #       render json: seller
+    #       end
+    #   end
+    # end
     
     private
     # Use callbacks to share common setup or constraints between actions.
