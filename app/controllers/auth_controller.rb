@@ -47,15 +47,16 @@ class AuthController < ApplicationController
     def create
         user = User.find_by(username:params[:username])
         if user&.authenticate(params[:password])
-            if (user.user_type=="Buyer")
+            if (user.user_type =="Buyer")
                 buyer = Buyer.find_by(user_id:user.id)
                 if buyer
                     session[:buyer_id] = buyer.id
                     render json: buyer
+                    
                 else
                     render json: {errors:["Invalid Buyer username or password"]}, status: :unauthorized
                 end
-            elsif((user.user_type=="Seller"))
+            elsif((user.user_type =="Seller"))
                 seller = Seller.find_by(user_id:user.id)
                 if seller
                     session[:seller_id] = seller.id
@@ -67,7 +68,7 @@ class AuthController < ApplicationController
                 render json: {errors:["You have not selected"]}, status: :not_found
             end
         else
-        render json: {errors:["Wrong email address or password"]}, status: :unprocessable_entity #422
+        render json: {errors:["Wrong username or password"]}, status: :unprocessable_entity #422
         end
     end
 

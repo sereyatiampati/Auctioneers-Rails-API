@@ -44,15 +44,26 @@ class UsersController < ApplicationController
     # end
 
     # auto-login /GET /buyer
-    def buyerlog
-      buyer = Buyer.find_by(id: session[:buyer_id])
-      render json: buyer, status: :ok
-    end
+    # def buyerlog
+    #   buyer = Buyer.find_by(id: session[:buyer_id])
+    #   render json: buyer, status: :ok
+    # end
 
-    # GET /seller
-    def sellerlog
-      seller = Seller.find_by(id: session[:seller_id])
-      render json: seller, status: :ok
+    # # GET /seller
+    # def sellerlog
+    #   seller = Seller.find_by(id: session[:seller_id])
+    #   render json: seller, status: :ok
+    # end
+
+    # GET /me
+    def show
+      if session.include? :buyer_id
+        buyer = Buyer.find_by(id: session[:buyer_id])
+        render json: buyer, status: :ok
+      else
+        seller = Seller.find_by(id: session[:seller_id])
+        render json: seller, status: :ok
+      end
     end
 
     
@@ -85,7 +96,7 @@ class UsersController < ApplicationController
       if user
           if (params[:user_type]=="Buyer")
           buyer= Buyer.create!(user_id:user.id, username:params[:username],email:params[:email])
-          session[:buyer_id] = buyer.id
+          session[:buyer_id] = buyer.id        
           render json: buyer
           else
           seller= Seller.create!(user_id:user.id, username:params[:username],email:params[:email])

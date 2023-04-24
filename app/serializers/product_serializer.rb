@@ -3,4 +3,5 @@ class ProductSerializer < ActiveModel::Serializer
 
   has_many :bids
   belongs_to :seller
+  belongs_to :category
 end
