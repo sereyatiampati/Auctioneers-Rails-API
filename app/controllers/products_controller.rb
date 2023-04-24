@@ -15,7 +15,8 @@ class ProductsController < ApplicationController
 
     # POST /products
     def create
-        product = Product.create(product_params)
+        seller = Seller.find_by(id: session[:seller_id])
+        product = seller.products.create(product_params)
         if product
             render json: product, status: :created
         else
@@ -65,7 +66,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image)
+        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image, :seller_id)
     end  
 
 end
