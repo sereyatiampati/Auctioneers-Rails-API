@@ -43,6 +43,13 @@ class ProductsController < ApplicationController
         end
     end
 
+    # GET /activebids
+    def active
+        @active_bids = Product.where("end_date > ?", Date.today)
+        render json: @active_bids
+    end
+
+
     # DELETE /products/:id
     def destroy
         product = Product.find_by(id: params[:id])
