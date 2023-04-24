@@ -7,7 +7,7 @@ class BidsController < ApplicationController
 
     # POST /bids
     def create
-        buyer = Buyer.find_by(id: 1)
+        buyer = current_user
         bid = buyer.bids.create(bid_params)
         if bid
             render json: bid, status: :created
@@ -18,8 +18,8 @@ class BidsController < ApplicationController
 
     # GET /bidhistory
     def show
-        user = Buyer.find_by(id: 1)
-        bid = user.bids.all
+        buyer = current_user
+        bid = buyer.bids.all
         if bid
             render json: bid, status: :ok
         else

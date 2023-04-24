@@ -10,8 +10,8 @@ u5 = User.create(username: "don", password: "dawn", email: "dwn2@example.com", u
 u6 = User.create(username: "lol", password: "9", email: "lol@example.com", user_type: "Seller")
 
 # Buyers
-Buyer.create(username: "john_doe", email: "john@example.com", user_id: 1)
-Buyer.create(username: "jane_doe", email: "jane@example.com", user_id: 2)
+b1 = Buyer.create(username: "john_doe", email: "john@example.com", user_id: 1)
+b2 = Buyer.create(username: "jane_doe", email: "jane@example.com", user_id: 2)
 
 # Sellers
 Seller.create(username: "jim_smith", email: "jim@example.com", user_id: 3)
@@ -153,9 +153,9 @@ Product.create([
 ])
 
 ##Bids
-Bid.create(bid_amount: 10.0, bid_time: DateTime.now, buyer_id: 1, product_id: 2)
-Bid.create(bid_amount: 15.0, bid_time: DateTime.now, buyer_id: 1, product_id: 3)
-Bid.create(bid_amount: 20.0, bid_time: DateTime.now, buyer_id: 2, product_id: 1)
+b1.bids.create(bid_amount: 10.0, bid_time: DateTime.now, product_id: 2)
+b2.bids.create(bid_amount: 15.0, bid_time: DateTime.now, product_id: 3)
+b2.bids.create(bid_amount: 20.0, bid_time: DateTime.now, product_id: 1)
 
 
 

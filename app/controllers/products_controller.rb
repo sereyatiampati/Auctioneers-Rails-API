@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
     # POST /products
     def create
-        seller = Seller.find_by(id: session[:seller_id])
+        seller = seller_now
         product = seller.products.create(product_params)
         if product
             render json: product, status: :created
