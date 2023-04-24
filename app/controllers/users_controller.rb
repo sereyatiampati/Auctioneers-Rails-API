@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only:[:create, :sellerlog]
+    # skip_before_action :authorized, only:[:create, :sellerlog]
     before_action :seller_auth, only: [:seller_log]
     skip_before_action :verify_authenticity_token
+    skip_before_action :authorized
 
     rescue_from ActiveRecord::RecordInvalid, with: :invalid_user_credentials
     rescue_from ActiveRecord::RecordNotFound, with: :user_not_found

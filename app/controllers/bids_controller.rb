@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-
+    skip_before_action :authorized
     # GET /bids
     def index
         render json: Bid.all
