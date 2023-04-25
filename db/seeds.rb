@@ -150,6 +150,26 @@ Product.create([
     category_id: 1,
     seller_id: 4
   },
+  {
+    name: "Series 7 Apple Watch",
+    description: "Temperature sensing, Cycle tracking, creating run routes. What's not to love?",
+    starting_price: 25000,
+    start_date: DateTime.now - 7.days,
+    end_date: DateTime.now - 3.days,
+    image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682410306/daniel-korpai-hbTKIbuMmBI-unsplash_a7kufr.jpg",
+    category_id: 1,
+    seller_id: 3
+  },
+  {
+    name: "Wired Headphones",
+    description: "Active Noise Cancellation(ANC) of up to 50db, Over-ear Design, and 30mm of the sound engine to give you excellent quality audio..",
+    starting_price: 1200,
+    start_date: DateTime.now - 10.days,
+    end_date: DateTime.now - 5.days,
+    image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682410352/kiran-ck-LSNJ-pltdu8-unsplash_ngzfvp.jpg",
+    category_id: 1,
+    seller_id: 4
+  }
 ])
 
 ##Bids
