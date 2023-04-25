@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get '/landing_products', to: 'products#latest_products'
   get '/highestbid/:id', to: 'products#maxamount'
   get '/activebids', to: 'products#active'
+  get '/inactive_bids', to: 'products#inactive'
+  get '/end_date/:id', to: 'products#close_bid'
+  patch '/products/:id', to: 'products#update'
 
   ##BIDS
   get '/bids', to: 'bids#index'
