@@ -47,10 +47,33 @@ class ProductsController < ApplicationController
 
     # GET /activebids
     def active
-        @active_bids = Product.where("end_date > ?", Date.today)
+        @active_bids = Product.where("end_date > ?", DateTime.now)
         render json: @active_bids
     end
 
+    # GET /inactive_bids
+    def inactive
+        @inactive_bids = Product.where("end_date < ?", DateTime.now)
+        render json: @inactive_bids
+    end
+
+    # GET /end_date/:id
+    def close_bid
+        product = Product.find_by(id: params[:id])
+        product.end_date = DateTime.now
+    end
+
+    # PATCH /products/:id
+    def update
+        product = Product.find_by(id: params[:id])
+        product.update(product_params)
+        if product
+            render json: product, status: :created
+        else
+            render json: {error: "Product not updated"}, status: :unprocessable_entity
+        end
+
+    end
 
     # DELETE /products/:id
     def destroy
