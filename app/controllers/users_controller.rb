@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
     # skip_before_action :authorized, only:[:create, :sellerlog]
-    before_action :seller_auth, only: [:seller_log]
-    skip_before_action :verify_authenticity_token
-    skip_before_action :authorized
+    # before_action :seller_auth, only: [:seller_log]
+    # skip_before_action :verify_authenticity_token
+    # skip_before_action :authorized
 
-    rescue_from ActiveRecord::RecordInvalid, with: :invalid_user_credentials
-    rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
+    # rescue_from ActiveRecord::RecordInvalid, with: :invalid_user_credentials
+    # rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
    
     # def index
     #     render json: User.all
@@ -57,15 +57,15 @@ class UsersController < ApplicationController
     # end
 
     # GET /me
-    def show
-      if session.include? :buyer_id
-        buyer = Buyer.find_by(id: session[:buyer_id])
-        render json: buyer, status: :ok
-      else
-        seller = Seller.find_by(id: session[:seller_id])
-        render json: seller, status: :ok
-      end
-    end
+    # def show
+    #   if session.include? :buyer_id
+    #     buyer = Buyer.find_by(id: session[:buyer_id])
+    #     render json: buyer, status: :ok
+    #   else
+    #     seller = Seller.find_by(id: session[:seller_id])
+    #     render json: seller, status: :ok
+    #   end
+    # end
 
     
     # def create
@@ -92,40 +92,65 @@ class UsersController < ApplicationController
     # end
 
     # POST /signup
-    def create
-      user = User.create!(user_params)
-      if user
-          if (params[:user_type]=="Buyer")
-          buyer= Buyer.create!(user_id:user.id, username:params[:username],email:params[:email])
-          session[:buyer_id] = buyer.id        
-          render json: buyer
-          else
-          seller= Seller.create!(user_id:user.id, username:params[:username],email:params[:email])
-          session[:seller_id] = seller.id
-          render json: seller
-          end
-      end
-    end
+    # def create
+    #   user = User.create!(user_params)
+    #   if user
+    #       if (params[:user_type]=="Buyer")
+    #       buyer= Buyer.create!(user_id:user.id, username:params[:username],email:params[:email])
+    #       session[:buyer_id] = buyer.id        
+    #       render json: buyer
+    #       else
+    #       seller= Seller.create!(user_id:user.id, username:params[:username],email:params[:email])
+    #       session[:seller_id] = seller.id
+    #       render json: seller
+    #       end
+    #   end
+    # end
     
-    private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+    # private
+    # # Use callbacks to share common setup or constraints between actions.
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.permit(:email, :username, :password, :password_confirmation, :user_type)
-    end
+    # # Only allow a list of trusted parameters through.
+    # def user_params
+    #   params.permit(:email, :username, :password, :password_confirmation, :user_type)
+    # end
 
-    # error handling
-    def invalid_user_credentials(invalid)
-      render json: {errors:invalid.record.errors.full_messages}, status: :unprocessable_entity #422
-    end
+    # # error handling
+    # def invalid_user_credentials(invalid)
+    #   render json: {errors:invalid.record.errors.full_messages}, status: :unprocessable_entity #422
+    # end
 
-    def user_not_found
-      render json: {errors:["User does not exist"]}, status: :not_found  #404
+    # def user_not_found
+    #   render json: {errors:["User does not exist"]}, status: :not_found  #404
+    # end
+
+    skip_before_action :authorized, only: [:create]
+
+  def create
+    @user = User.create!(user_params)
+    if @user.valid?
+      if (params[:user_type]=="Buyer")
+        @buyer= Buyer.create!(user_id:user.id, username:params[:username],email:params[:email])
+        @token = encode_token(user_id: @buyer.id)
+        render json: { user: @buyer, jwt: @token }, status: :created
+      elsif (params[:user_type]=="Seller")
+        @seller= Seller.create!(user_id:user.id, username:params[:username],email:params[:email])
+        @token = encode_token(user_id: @seller.id)
+        render json: { user: @seller, jwt: @token }, status: :created
+      end
+    else
+      render json: { error: ['failed to create user' ]}, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def user_params
+    params.permit(:username, :password, :email, :password_confirmation, :user_type)
+  end
 end
 
 
