@@ -8,18 +8,18 @@ class BidsController < ApplicationController
     # POST /bids
     def create
         buyer = current_user
-        bid = buyer.bids.create(bid_params)
+        bid = buyer.bids.create!(params.permit(:bid_amount,:product_id, bid_time: Date.today ))
         if bid
             render json: bid, status: :created
         else
-            render json: {error: "Bid not created"}, status: :unprocessable_entity
+            render json: {error: ["Bid not created"]}, status: :unprocessable_entity
         end
     end
 
     # GET /bidhistory
     def show
         buyer = current_user
-        bid = buyer.bids.all
+        bid = buyer.products.all
         if bid
             render json: bid, status: :ok
         else
@@ -60,9 +60,9 @@ class BidsController < ApplicationController
     end
 
     private
-    def bid_params
-        params.permit(:bid_amount, :bid_time, :buyer_id, :product_id)
-    end
+    # def bid_params
+    #     params.permit(:bid_amount, :bid_time, :product_id)
+    # end
     
 
 end
