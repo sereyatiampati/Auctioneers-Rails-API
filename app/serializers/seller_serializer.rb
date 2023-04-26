@@ -1,5 +1,5 @@
 class SellerSerializer < ActiveModel::Serializer
-  attributes :id, :username, :email, :user_type
+  attributes :id, :username, :email, :user_type, :user_id
 
   has_many :products
 
