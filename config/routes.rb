@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/highestbid/:id', to: 'products#maxamount'
   get '/activebids', to: 'products#active'
   get '/inactive_bids', to: 'products#inactive'
-  get '/end_date/:id', to: 'products#close_bid'
+  patch '/close_bid/:id', to: 'products#closebid'
   patch '/products/:id', to: 'products#update'
 
   ##BIDS
