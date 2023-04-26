@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post "/login", to: "auth#create"
   # get '/me', to: 'users#show'
   get '/me', to: 'users#profile'
+  get '/users', to: 'users#index'
+  get 'users/:id', to: 'users#show'
 
 
   ##PRODUCTS

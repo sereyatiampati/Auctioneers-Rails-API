@@ -15,11 +15,11 @@ class ProductsController < ApplicationController
     # POST /products
     def create
         seller = seller_now
-        product = seller.products.create(product_params)
+        product = Product.create(product_params)
         if product
             render json: product, status: :created
         else
-            render json: {error: "Product not created"}, status: :unprocessable_entity
+            render json: product.errors, status: :unprocessable_entity
         end
     end
 
@@ -88,7 +88,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image)
+        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image, :seller_id, :category_id)
     end  
 
 end
