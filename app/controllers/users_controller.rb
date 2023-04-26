@@ -24,11 +24,11 @@ class UsersController < ApplicationController
         if user
           if (params[:user_type]=="Buyer")
             buyer = Buyer.create!(user_id:user.id, username:params[:username],email:params[:email])
-            token = encode_token({ buyer_id: buyer.id })
+            token = encode_token({ buyer_id: buyer.id, user_id: user.id })
             render json: { buyer: BuyerSerializer.new(buyer), jwt: token }, status: :created
           elsif (params[:user_type]=="Seller")
             seller = Seller.create!(user_id:user.id, username:params[:username],email:params[:email])
-            token = encode_token({ seller_id: seller.id })
+            token = encode_token({ seller_id: seller.id, user_id: user.id })
             render json: { seller: SellerSerializer.new(seller), jwt: token }, status: :created
           end
       end

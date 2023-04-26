@@ -21,7 +21,7 @@ class AuthController < ApplicationController
             if (user.user_type =="Buyer")
                 buyer = Buyer.find_by(user_id:user.id)
                 if buyer
-                    token = encode_token({ buyer_id: buyer.id })
+                    token = encode_token({ buyer_id: buyer.id, user_id: user.id })
                     render json: { buyer: BuyerSerializer.new(buyer), jwt: token }, status: :created
                 else
                     render json: {errors:["Invalid Buyer username or password"]}, status: :unauthorized
@@ -29,7 +29,7 @@ class AuthController < ApplicationController
             elsif((user.user_type =="Seller"))
                 seller = Seller.find_by(user_id:user.id)
                 if seller
-                    token = encode_token({ seller_id: seller.id })
+                    token = encode_token({ seller_id: seller.id, user_id: user.id })
                     render json: { seller: SellerSerializer.new(seller), jwt: token }, status: :created
                 else
                     render json: {errors:["Invalid Seller username or password"]}, status: :unauthorized
