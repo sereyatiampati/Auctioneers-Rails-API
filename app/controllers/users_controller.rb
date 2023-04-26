@@ -54,6 +54,12 @@ class UsersController < ApplicationController
         end
     end
 
+    def seller_products
+      seller_id = params[:id]
+      products = Product.where(seller_id: seller_id)
+      render json: products
+    end
+
     # GET /me
     def profile
       if current_user
