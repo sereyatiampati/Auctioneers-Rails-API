@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   get '/products/:id', to: 'products#show'
   post '/products', to: 'products#create'
   delete 'products/:id', to: 'products#destroy'
-  get '/landing_products', to: 'products#latest_products'
+  get '/latest_products', to: 'products#latest_products'
   get '/highestbid/:id', to: 'products#maxamount'
   get '/activebids', to: 'products#active'
   get '/inactive_bids', to: 'products#inactive'
-  get '/end_date/:id', to: 'products#close_bid'
+  patch '/close_bid/:id', to: 'products#closebid'
   patch '/products/:id', to: 'products#update'
 
   ##BIDS

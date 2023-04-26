@@ -36,30 +36,36 @@ class ProductsController < ApplicationController
     # GET /highestbid/:id
     def maxamount
         product = Product.find_by(id: params[:id])
-        bid = product.bids.order(bid_amount: :desc).first
-        if bid
-            render json: bid, status: :ok
+        @bid = product.bids.order(bid_amount: :desc).first
+        
+        buyer = Buyer.find_by(id: @bid.buyer_id)
+        if @bid
+            render json: @bid, status: :ok
         else
             render json: {error: "Highest Bid not found"}, status: :not_found
+        end
+
+        if (product.end_date == Date.today)
+            BidMailer.with(bid: @bid).winning_bidder(buyer).deliver
         end
     end
 
      # GET /activebids
      def active
-        @active_bids = Product.where("end_date > ?", DateTime.now)
+        @active_bids = Product.where("end_date > ?", Date.today)
         render json: @active_bids
     end
 
     # GET /inactive_bids
     def inactive
-        @inactive_bids = Product.where("end_date < ?", DateTime.now)
+        @inactive_bids = Product.where("end_date < ?", Date.today)
         render json: @inactive_bids
     end
 
-    # GET /end_date/:id
-    def close_bid
+    # PATCH /close_bid/:id
+    def closebid
         product = Product.find_by(id: params[:id])
-        product.end_date = DateTime.now
+        product.update(end_date: Date.today)
     end
 
     # PATCH /products/:id
@@ -88,7 +94,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image)
+        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image, :category_id)
     end  
 
 end
