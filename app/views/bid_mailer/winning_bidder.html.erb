@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You won the bid for <%= @product.name %>!</p>
+    <p>
+    Bid Details<br>
+    --------------------------
+    </p>
+    <p>Product Name: <%= @product.name %></p>
+    <p>Email: <%= @buyer.email %></p>
+    <p>Bid Amount: <%= @bid.bid_amount %></p>
+    <p>Auction End Date: <%= @product.end_date %></p>
+    <p>
+    Product Description:<br>
+    ----------
+    </p>
+    <p><%= @product.description %></p>
+  </body>
+</html>
