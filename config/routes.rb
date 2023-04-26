@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/me', to: 'users#profile'
   get '/users', to: 'users#index'
   get 'users/:id', to: 'users#show'
+  get 'users/:id/products', to: 'users#seller_products'
 
 
   ##PRODUCTS
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   get '/inactive_bids', to: 'products#inactive'
   patch '/close_bid/:id', to: 'products#closebid'
   patch '/products/:id', to: 'products#update'
+
 
   ##BIDS
   get '/bids', to: 'bids#index'

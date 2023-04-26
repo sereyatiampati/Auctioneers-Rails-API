@@ -81,6 +81,8 @@ class ProductsController < ApplicationController
 
     end
 
+    
+
     # DELETE /products/:id
     def destroy
         product = Product.find_by(id: params[:id])
@@ -95,11 +97,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-<<<<<<< HEAD
         params.permit(:name, :description, :starting_price, :start_date, :end_date, :image, :seller_id, :category_id)
-=======
-        params.permit(:name, :description, :starting_price, :start_date, :end_date, :image, :category_id)
->>>>>>> 28acd825a43808300737bbf92b158aa526351a28
     end  
 
 end
