@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 
     # POST /products
     def create
-        seller = Seller.find_by(id: session[:seller_id])
+        seller = seller_now
         product = seller.products.create(product_params)
         if product
             render json: product, status: :created
@@ -49,6 +49,7 @@ class ProductsController < ApplicationController
             BidMailer.with(bid: @bid).winning_bidder(buyer).deliver
         end
     end
+
 
      # GET /activebids
      def active
