@@ -178,7 +178,6 @@ b2.bids.create(bid_amount: 15.0, bid_time: DateTime.now, product_id: 3)
 b2.bids.create(bid_amount: 20.0, bid_time: DateTime.now, product_id: 1)
 
 
-
 puts "Away we Go 🏁"
 
   
