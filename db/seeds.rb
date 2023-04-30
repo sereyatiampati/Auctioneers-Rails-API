@@ -179,6 +179,7 @@ b1.bids.create(bid_amount: 10.0, bid_time: Date.today, product_id: 2)
 b2.bids.create(bid_amount: 15.0, bid_time: Date.today, product_id: 3)
 b2.bids.create(bid_amount: 20.0, bid_time: Date.today, product_id: 1)
 b3.bids.create(bid_amount: 2000.0, bid_time: Date.today, product_id: 12)
+b2.bids.create(bid_amount: 5000.0, bid_time: Date.today, product_id: 10)
 b2.bids.create(bid_amount: 20000.0, bid_time: Date.today, product_id: 10)
 
 
