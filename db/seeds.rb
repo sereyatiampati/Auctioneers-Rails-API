@@ -21,40 +21,31 @@ Seller.create(username: "k-2", email: "k2@example.com", user_id: 4)
 Seller.create(username: "don", email: "dwn2@example.com", user_id: 5)
 Seller.create(username: "lol", email: "lol@example.com", user_id: 6)
 
-##Products
-# p1 = Product.create({
-#     name: "iPhone 13 Pro",
-#     description: "The latest iPhone with A15 Bionic chip and ProMotion display.",
-#     starting_price: 1000,
-#     start_date: DateTime.now,
-#     end_date: DateTime.now + 7.days,
-#     image: "iphone.jpg"
-# })
-#   p2 = Product.create({
-#     name: "Leather Jacket",
-#     description: "A stylish leather jacket for men or women.",
-#     starting_price: 200,
-#     start_date: DateTime.now,
-#     end_date: DateTime.now + 5.days,
-#     image: "leather_jacket.jpg"
-#   })
-#   p3 = Product.create({
-#     name: "Rustic Coffee Table",
-#     description: "A handmade coffee table made from reclaimed wood.",
-#     starting_price: 300,
-#     start_date: DateTime.now,
-#     end_date: DateTime.now + 3.days,
-#     image: "coffee_table.jpg"
-#   })
+
 ##Categories
-Category.create(category_name: "Phones & Laptops", category_image: "https://images.unsplash.com/photo-1542351967-d5ae722fed71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGhvbmVzJTIwJTI2JTIwbGFwdG9wc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "Smart Phones", category_image: "https://i.ebayimg.com/images/g/H2YAAOSw8KthE6N8/s-l500.jpg")
+
+Category.create(category_name: "Clothing", category_image: "https://shopgoodwillimages.azureedge.net/production/General/img-cat-clothing.webp")
+
+Category.create(category_name: "Smart Watches", category_image: "https://media.istockphoto.com/id/1380063784/photo/smart-watch-close-up-on-a-white-background-3d-render.jpg?b=1&s=170667a&w=0&k=20&c=YE-ayMaexI7kjc5C0LaZeMAXUDYSYRY9z2VMW4_Jt5U=")
+
+Category.create(category_name: "Home Decor", category_image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682797111/flowerpots-gb74b1410a_1920_v45jjl.jpg")
+
+Category.create(category_name: "Jewellery & Gemstones", category_image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682793911/b5e95b62-4cca-427e-8e70-9348b16bab0crown_0427t1_1_wv2eon.png")
+
+Category.create(category_name: "Washing Machines", category_image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682796630/oli-woodman-nUL_PP69IPA-unsplash_lukes0.jpg")
+
+Category.create(category_name: "Smart Televisions", category_image: "https://ibid.modeltheme.com/vuejs/img/smartTv.db3e2cd1.jpg")
+
+Category.create(category_name: "Laptops", category_image: "https://ibid.modeltheme.com/vuejs/img/laptop-cat1.ffd64937.jpg")
+
 Category.create(category_name: "Headphones", category_image: "https://images.unsplash.com/photo-1547932087-59a8f2be576e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjF8fGhlYWRwaG9uZXMlMjAlMjYlMjBzbWFydHdhdGNoZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
-Category.create(category_name: "Household Items", category_image: "https://plus.unsplash.com/premium_photo-1668614524295-c3bb5bb3a2b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2Vob2xkJTIwSXRlbXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
-Category.create(category_name: "Smart Watches", category_image: "https://images.unsplash.com/photo-1631863552122-3072cf599a46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHNtYXJ0JTIwd2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+
 Category.create(category_name: "Vacuum Cleaners", category_image: "https://images.unsplash.com/photo-1600322305530-45714a0bc945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmFjdXVtJTIwY2xlYW5lcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
-Category.create(category_name: "Washing Machines", category_image: "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d2FzaGluZyUyMG1hY2hpbmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
-Category.create(category_name: "TVs", category_image: "https://images.unsplash.com/photo-1563699182-58375278b2b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHZzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
-Category.create(category_name: "Clothing", category_image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2xvdGhpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+
+Category.create(category_name: "Household Items", category_image: "https://plus.unsplash.com/premium_photo-1668614524295-c3bb5bb3a2b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2Vob2xkJTIwSXRlbXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "Computers & Accessories", category_image: "https://images.unsplash.com/photo-1545875615-86f54b81a82d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3VydmVkJTIwdHZ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+
 
 
 Product.create([
@@ -75,7 +66,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682182246/Auctioneers/Products%20images/Artboard-1-copy_300x-100-65-1-1.jpg_j4l1sz.webp",
-    category_id: 1,
+    category_id: 8,
     seller_id: 1
   },
   {
@@ -85,7 +76,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://m.media-amazon.com/images/I/81W3UaumB2L._AC_UL400_.jpg",
-    category_id: 3,
+    category_id: 4,
     seller_id: 1
   },
   {
@@ -95,7 +86,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682167105/Auctioneers/Products%20images/irene-kredenets-dwKiHoqqxk8-unsplash_2_fjmhbo.jpg",
-    category_id: 8,
+    category_id: 2,
     seller_id: 2
   },
   {
@@ -105,7 +96,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682168389/Auctioneers/Products%20images/swim__fgeofjpbekii_large_n4kqun.jpg",
-    category_id: 4,
+    category_id: 3,
     seller_id: 2
   },
   {
@@ -115,7 +106,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 5.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682149837/Auctioneers/Products%20images/lea-ochel-nsRBbE6-YLs-unsplash_uwp60e.jpg",
-    category_id: 8,
+    category_id: 2,
     seller_id: 3
   },
   {
@@ -125,7 +116,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682152513/Auctioneers/Products%20images/hero__fkyiyagbj7yy_large_ufrele.jpg",
-    category_id: 1,
+    category_id: 12,
     seller_id: 3
   },
   {
@@ -135,7 +126,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://plus.unsplash.com/premium_photo-1673548917207-8747dffd1391?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG1hY2Jvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    category_id: 3,
+    category_id: 4,
     seller_id: 3
   },
   {
@@ -145,7 +136,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682169012/Auctioneers/Products%20images/cld-sample-5_bhtq4u.jpg",
-    category_id: 8,
+    category_id: 2,
     seller_id: 4
   },
   {
@@ -155,7 +146,7 @@ Product.create([
     start_date: Date.today - 12.days,
     end_date: Date.today,
     image: "https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png",
-    category_id: 1,
+    category_id: 8,
     seller_id: 4
   },
   {
@@ -165,7 +156,7 @@ Product.create([
     start_date: Date.today - 7.days,
     end_date: Date.today - 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682410306/daniel-korpai-hbTKIbuMmBI-unsplash_a7kufr.jpg",
-    category_id: 4,
+    category_id: 3,
     seller_id: 3
   },
   {
@@ -175,7 +166,7 @@ Product.create([
     start_date: Date.today - 10.days,
     end_date: Date.today,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682410352/kiran-ck-LSNJ-pltdu8-unsplash_ngzfvp.jpg",
-    category_id: 2,
+    category_id: 9,
     seller_id: 4
   },
   {
@@ -185,7 +176,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 7.days,
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2lyZWxlc3MlMjBoZWFkcGhvbmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    category_id: 2,
+    category_id: 9,
     seller_id: 4
   },
   {
@@ -195,7 +186,7 @@ Product.create([
     start_date: Date.today - 5.days,
     end_date: Date.today + 3.days,
     image: "https://images.unsplash.com/photo-1634585605949-8f1e029af923?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YWlyJTIwcHVyaWZpZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    category_id: 3,
+    category_id: 11,
     seller_id: 2
   },
   {
@@ -205,7 +196,7 @@ Product.create([
     start_date: Date.today - 15.days,
     end_date: Date.today,
     image: "https://images.unsplash.com/photo-1655215920713-94440bf7213f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVhd2VpJTIwc21hcnQlMjB3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    category_id: 4,
+    category_id: 3,
     seller_id: 3
   },
   {
@@ -215,7 +206,7 @@ Product.create([
     start_date: Date.today - 1.days,
     end_date: Date.today + 5.days,
     image: "https://images.unsplash.com/photo-1653990480360-31a12ce9723e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXV0b21hdGljJTIwdmFjdXVtJTIwY2xlYW5lcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    category_id: 5,
+    category_id: 10,
     seller_id: 2
   },
   {
@@ -225,7 +216,7 @@ Product.create([
     start_date: Date.today - 5.days,
     end_date: Date.today + 1.days,
     image: "https://images.unsplash.com/photo-1527515673510-8aa78ce21f9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dmFjdXVtJTIwY2xlYW5lcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    category_id: 5,
+    category_id: 10,
     seller_id: 1
   },
   {
@@ -265,7 +256,7 @@ Product.create([
     start_date: Date.today - 10.days,
     end_date: Date.today - 2.days,
     image: "https://images.unsplash.com/photo-1545875615-86f54b81a82d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3VydmVkJTIwdHZ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-    category_id: 7,
+    category_id: 12,
     seller_id: 2
   }
 ])
