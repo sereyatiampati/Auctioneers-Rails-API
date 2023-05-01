@@ -89,4 +89,4 @@ ruby 2.7.4p191 (2021-07-07 revision a21a3b7d23) [x86_64-linux]
 - [@Randy Kipkurui](https://github.com/randy-04)
 
 ## License
-[MIT]()
+[MIT](https://github.com/sereyatiampati/Auctioneers-Rails-API/blob/master/LICENSE.md)

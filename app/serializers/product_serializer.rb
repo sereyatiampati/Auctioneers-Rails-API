@@ -8,15 +8,15 @@ class ProductSerializer < ActiveModel::Serializer
   def count
     allbids = self.object.bids.all
     bidscount = allbids.count
-    "#{bidscount}"
+    return bidscount
   end
 
   def highest_bid
     allbids = self.object.bids.all
     bid = allbids.order(bid_amount: :desc).first
     if bid
-      bid.bid_amount
-      "#{bid.bid_amount}"
+      return bid.bid_amount
+      
     else
       return 0
     end
