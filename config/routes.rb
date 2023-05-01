@@ -42,9 +42,4 @@ Rails.application.routes.draw do
   delete '/categories/:id', to: 'categories#destroy'
   get '/category_products/:id', to: 'categories#find'
 
-  ##ROLES
-  get '/roles', to: 'roles#index'
-  get '/roles/:id', to: 'roles#show'
-  post '/roles', to: 'roles#create'
-  delete '/roles/:id', to: 'roles#destroy'
 end

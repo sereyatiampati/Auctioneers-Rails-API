@@ -266,7 +266,7 @@ Product.create([
     end_date: Date.today - 2.days,
     image: "https://images.unsplash.com/photo-1545875615-86f54b81a82d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3VydmVkJTIwdHZ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
     category_id: 7,
-    seller_id: 3
+    seller_id: 2
   }
 ])
 
@@ -279,6 +279,10 @@ b2.bids.create(bid_amount: 5000.0, bid_time: Date.today, product_id: 10)
 b2.bids.create(bid_amount: 20000.0, bid_time: Date.today, product_id: 10)
 b1.bids.create(bid_amount: 150000.0, bid_time: Date.today, product_id: 21)
 b1.bids.create(bid_amount: 22000.0, bid_time: Date.today, product_id: 19)
+b1.bids.create(bid_amount: 500.0, bid_time: Date.today, product_id: 4)
+b3.bids.create(bid_amount: 600.0, bid_time: Date.today, product_id: 4)
+b2.bids.create(bid_amount: 46000.0, bid_time: Date.today, product_id: 20)
+b1.bids.create(bid_amount: 16000.0, bid_time: Date.today, product_id: 16)
 
 
 puts "Away we Go 🏁"

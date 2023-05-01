@@ -69,7 +69,7 @@ class ProductsController < ApplicationController
     # PATCH /close_bid/:id
     def closebid
         product = Product.find_by(id: params[:id])
-        product.update(end_date: end_date)
+        product.update(product_params)
         if product
             render json: product, status: :created
         else
