@@ -47,9 +47,15 @@ Seller.create(username: "lol", email: "lol@example.com", user_id: 6)
 #     image: "coffee_table.jpg"
 #   })
 ##Categories
-Category.create(category_name: "Electronics", category_image: "electronics.jpg")
-Category.create(category_name: "Clothing", category_image: "clothing.jpg")
-Category.create(category_name: "Home Decor", category_image: "homedecor.jpg")
+Category.create(category_name: "Phones & Laptops", category_image: "https://images.unsplash.com/photo-1542351967-d5ae722fed71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGhvbmVzJTIwJTI2JTIwbGFwdG9wc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "Headphones", category_image: "https://images.unsplash.com/photo-1547932087-59a8f2be576e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjF8fGhlYWRwaG9uZXMlMjAlMjYlMjBzbWFydHdhdGNoZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "Household Items", category_image: "https://plus.unsplash.com/premium_photo-1668614524295-c3bb5bb3a2b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2Vob2xkJTIwSXRlbXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "Smart Watches", category_image: "https://images.unsplash.com/photo-1631863552122-3072cf599a46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHNtYXJ0JTIwd2F0Y2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "Vacuum Cleaners", category_image: "https://images.unsplash.com/photo-1600322305530-45714a0bc945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmFjdXVtJTIwY2xlYW5lcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "Washing Machines", category_image: "https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d2FzaGluZyUyMG1hY2hpbmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "TVs", category_image: "https://images.unsplash.com/photo-1563699182-58375278b2b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dHZzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60")
+Category.create(category_name: "Clothing", category_image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2xvdGhpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60")
+
 
 Product.create([
   {
@@ -89,7 +95,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682167105/Auctioneers/Products%20images/irene-kredenets-dwKiHoqqxk8-unsplash_2_fjmhbo.jpg",
-    category_id: 3,
+    category_id: 8,
     seller_id: 2
   },
   {
@@ -99,7 +105,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682168389/Auctioneers/Products%20images/swim__fgeofjpbekii_large_n4kqun.jpg",
-    category_id: 1,
+    category_id: 4,
     seller_id: 2
   },
   {
@@ -109,7 +115,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 5.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682149837/Auctioneers/Products%20images/lea-ochel-nsRBbE6-YLs-unsplash_uwp60e.jpg",
-    category_id: 2,
+    category_id: 8,
     seller_id: 3
   },
   {
@@ -139,7 +145,7 @@ Product.create([
     start_date: Date.today,
     end_date: Date.today + 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682169012/Auctioneers/Products%20images/cld-sample-5_bhtq4u.jpg",
-    category_id: 3,
+    category_id: 8,
     seller_id: 4
   },
   {
@@ -159,7 +165,7 @@ Product.create([
     start_date: Date.today - 7.days,
     end_date: Date.today - 3.days,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682410306/daniel-korpai-hbTKIbuMmBI-unsplash_a7kufr.jpg",
-    category_id: 1,
+    category_id: 4,
     seller_id: 3
   },
   {
@@ -169,18 +175,110 @@ Product.create([
     start_date: Date.today - 10.days,
     end_date: Date.today,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682410352/kiran-ck-LSNJ-pltdu8-unsplash_ngzfvp.jpg",
-    category_id: 1,
+    category_id: 2,
     seller_id: 4
+  },
+  {
+    name: "ANC Wireless Headphones",
+    description: "Over-ear Design, 5.3 Bluetooth",
+    starting_price: 5200,
+    start_date: Date.today,
+    end_date: Date.today + 7.days,
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2lyZWxlc3MlMjBoZWFkcGhvbmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    category_id: 2,
+    seller_id: 4
+  },
+  {
+    name: "Air Purifier",
+    description: "Works better than a diffuser. Cleanses your Palace.",
+    starting_price: 1000,
+    start_date: Date.today - 5.days,
+    end_date: Date.today + 3.days,
+    image: "https://images.unsplash.com/photo-1634585605949-8f1e029af923?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YWlyJTIwcHVyaWZpZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    category_id: 3,
+    seller_id: 2
+  },
+  {
+    name: "Huawei Smart Watch",
+    description: "Pin-point location tracking. Amazing battery life.",
+    starting_price: 12000,
+    start_date: Date.today - 15.days,
+    end_date: Date.today,
+    image: "https://images.unsplash.com/photo-1655215920713-94440bf7213f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVhd2VpJTIwc21hcnQlMjB3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    category_id: 4,
+    seller_id: 3
+  },
+  {
+    name: "Automated Vacuum Cleaner",
+    description: "Works based on a scheule you set.",
+    starting_price: 15000,
+    start_date: Date.today - 1.days,
+    end_date: Date.today + 5.days,
+    image: "https://images.unsplash.com/photo-1653990480360-31a12ce9723e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXV0b21hdGljJTIwdmFjdXVtJTIwY2xlYW5lcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    category_id: 5,
+    seller_id: 2
+  },
+  {
+    name: "Light weight vacuum cleaner",
+    description: "Light and rechargeable vacuum.",
+    starting_price: 8000,
+    start_date: Date.today - 5.days,
+    end_date: Date.today + 1.days,
+    image: "https://images.unsplash.com/photo-1527515673510-8aa78ce21f9b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dmFjdXVtJTIwY2xlYW5lcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+    category_id: 5,
+    seller_id: 1
+  },
+  {
+    name: "Front Load Washing Machine",
+    description: "Uses water efficiently.",
+    starting_price: 32000,
+    start_date: Date.today - 10.days,
+    end_date: Date.today - 1.days,
+    image: "https://images.unsplash.com/photo-1626806787426-5910811b6325?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHdhc2hpbmclMjBtYWNoaW5lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    category_id: 6,
+    seller_id: 3
+  },
+  {
+    name: "Top Load Washing Machine",
+    description: "20L capacity.",
+    starting_price: 20000,
+    start_date: Date.today - 1.days,
+    end_date: Date.today + 12.days,
+    image: "https://images.unsplash.com/photo-1624381987697-3f93d65ddeea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHdhc2hpbmclMjBtYWNoaW5lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    category_id: 6,
+    seller_id: 3
+  },
+  {
+    name: "Android Smart TV",
+    description: "Connect with your home devices swiftly.",
+    starting_price: 42000,
+    start_date: Date.today - 7.days,
+    end_date: Date.today + 9.days,
+    image: "https://images.unsplash.com/photo-1611484550037-d5a0da2b1446?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YW5kcm9pZCUyMHR2fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    category_id: 7,
+    seller_id: 2
+  },
+  {
+    name: "Curved monitor",
+    description: "Tell me why you'll ever want to leave your house again.",
+    starting_price: 120000,
+    start_date: Date.today - 10.days,
+    end_date: Date.today - 2.days,
+    image: "https://images.unsplash.com/photo-1545875615-86f54b81a82d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3VydmVkJTIwdHZ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    category_id: 7,
+    seller_id: 3
   }
 ])
 
 ##Bids
-b1.bids.create(bid_amount: 10.0, bid_time: Date.today, product_id: 2)
-b2.bids.create(bid_amount: 15.0, bid_time: Date.today, product_id: 3)
-b2.bids.create(bid_amount: 20.0, bid_time: Date.today, product_id: 1)
+b1.bids.create(bid_amount: 1000.0, bid_time: Date.today, product_id: 2)
+b2.bids.create(bid_amount: 1500.0, bid_time: Date.today, product_id: 3)
+b2.bids.create(bid_amount: 2000.0, bid_time: Date.today, product_id: 1)
 b3.bids.create(bid_amount: 2000.0, bid_time: Date.today, product_id: 12)
 b2.bids.create(bid_amount: 5000.0, bid_time: Date.today, product_id: 10)
 b2.bids.create(bid_amount: 20000.0, bid_time: Date.today, product_id: 10)
+b1.bids.create(bid_amount: 150000.0, bid_time: Date.today, product_id: 21)
+b1.bids.create(bid_amount: 22000.0, bid_time: Date.today, product_id: 19)
 
 
 puts "Away we Go 🏁"
