@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get '/categories/:id', to: 'categories#show'
   post '/categories', to: 'categories#create'
   delete '/categories/:id', to: 'categories#destroy'
+  get '/category_products/:id', to: 'categories#find'
 
   ##ROLES
   get '/roles', to: 'roles#index'

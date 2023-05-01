@@ -33,6 +33,17 @@ class CategoriesController < ApplicationController
         end
     end
 
+    # GET /category_products/:id
+    def find
+        category = Category.find_by(id: params[:id])
+        products = category.products
+        if products
+            render json: products, status: :ok
+        else
+            render json: {errors: ["Products not found"]}, status: :not_found
+        end
+    end
+
     private
     
     def category_params
