@@ -40,8 +40,8 @@ class ProductsController < ApplicationController
         # allbids = product.bids.all
         # bidscount = allbids.count
         
-        buyer = Buyer.find_by(id: @bid.buyer_id)
         if @bid
+            buyer = Buyer.find_by(id: @bid.buyer_id)
             # render json: {bids: @bid, count: bidscount, product: product, buyer: buyer}, except: [:created_at, :updated_at], status: :ok
             render json: @bid, status: :ok
         else
