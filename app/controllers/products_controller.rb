@@ -67,14 +67,19 @@ class ProductsController < ApplicationController
     end
 
     # PATCH /close_bid/:id
+    # def closebid
+    #     product = Product.find_by(id: params[:id])
+    #     product.update(product_params)
+    #     if product
+    #         render json: product, status: :created
+    #     else
+    #         render json: {error: "Product not updated"}, status: :unprocessable_entity
+    #     end   
+    # end
+
     def closebid
         product = Product.find_by(id: params[:id])
-        product.update(product_params)
-        if product
-            render json: product, status: :created
-        else
-            render json: {error: "Product not updated"}, status: :unprocessable_entity
-        end   
+        product.update(end_date: Date.today)
     end
 
     # PATCH /products/:id
