@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_01_113646) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_02_034649) do
   create_table "bids", force: :cascade do |t|
     t.float "bid_amount", default: 0.0
     t.datetime "bid_time"
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_113646) do
   end
 
   add_foreign_key "bids", "buyers"
-  add_foreign_key "bids", "products"
+  add_foreign_key "bids", "products", on_delete: :cascade
   add_foreign_key "products", "categories"
   add_foreign_key "products", "sellers"
 end
