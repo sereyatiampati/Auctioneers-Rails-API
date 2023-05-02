@@ -50,6 +50,7 @@ ruby 2.7.4p191 (2021-07-07 revision a21a3b7d23) [x86_64-linux]
 ```
 
 ## Services (routes)
+- The link to the deployed backend is: https://testing-e1kb.onrender.com.
 
 - The routes available for this API are:
 * PRODUCTS:

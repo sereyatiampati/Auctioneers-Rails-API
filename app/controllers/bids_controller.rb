@@ -19,11 +19,11 @@ class BidsController < ApplicationController
     # GET /bidhistory
     def show
         buyer = current_user
-        bid = buyer.products.all
+        bid = buyer.bids.all
         if bid
             render json: bid, status: :ok
         else
-            render json: {error: "Bid not found"}, status: :not_found
+            render json: {errors: ["Bid not found"]}, status: :not_found
         end
     end
 

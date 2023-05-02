@@ -80,7 +80,7 @@ Product.create([
     seller_id: 1
   },
   {
-    name: "Addidas White Sneakers",
+    name: "Adidas White Sneakers",
     description: "Adidas white sneakers are popular for both athletic and casual wear and are known for their comfort, durability, and style.",
     starting_price: 450,
     start_date: Date.today,
@@ -130,11 +130,11 @@ Product.create([
     seller_id: 3
   },
   {
-    name: "Addidas White Sneakers",
+    name: "Adidas White Sneakers",
     description: "Adidas white sneakers are popular for both athletic and casual wear and are known for their comfort, durability, and style.",
     starting_price: 300,
-    start_date: Date.today,
-    end_date: Date.today + 3.days,
+    start_date: Date.today - 40.days,
+    end_date: Date.today,
     image: "https://res.cloudinary.com/dwrwnflkr/image/upload/v1682169012/Auctioneers/Products%20images/cld-sample-5_bhtq4u.jpg",
     category_id: 2,
     seller_id: 4
